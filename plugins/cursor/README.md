@@ -1,6 +1,6 @@
 # Traversal for Cursor
 
-Connects Cursor to Traversal's remote MCP server so your agent can investigate production incidents, find root causes, and suggest fixes using your observability data. It also adds the `traversal-investigate` skill, which teaches the agent the investigate and follow-up workflow, how to poll long investigations, and how to share results.
+Connects Cursor to Traversal's remote MCP server so your agent can investigate production incidents, find root causes, and suggest fixes using your observability data. It also adds skills that teach the agent how to run investigations, follow up on findings, and share results.
 
 ## Setup
 

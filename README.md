@@ -5,7 +5,7 @@ Plugins that connect coding agents to [Traversal](https://traversal.com), so you
 Each plugin bundles:
 
 - The Traversal remote MCP server (`https://api.prod.traversal.com/mcp/`)
-- The `traversal-investigate` skill, which teaches the agent to investigate, follow up, and share results
+- Skills that teach the agent how to investigate, follow up, and share results
 
 | Agent | Plugin | Authentication |
 |---|---|---|
