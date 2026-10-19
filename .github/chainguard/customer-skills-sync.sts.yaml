@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/octo-sts/app/refs/heads/main/pkg/octosts/octosts.TrustPolicy.json
+
+# Lets traversal's sync-customer-skills workflow, on master only, push the
+# sync/customer-skills branch here and open a PR. Pinned to that one workflow
+# file so no other traversal workflow can mint this token.
+issuer: https://token.actions.githubusercontent.com
+subject: repo:InteractionLabs/traversal:ref:refs/heads/master
+
+claim_pattern:
+  job_workflow_ref: ^InteractionLabs/traversal/\.github/workflows/sync-customer-skills\.yml@refs/heads/master$
+
+permissions:
+  contents: write
+  pull_requests: write

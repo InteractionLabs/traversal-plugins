@@ -1,0 +1,24 @@
+{
+  "name": "traversal",
+  "displayName": "Traversal",
+  "version": "0.1.0",
+  "description": "Investigate production incidents with Traversal's AI root cause analysis from Claude Code.",
+  "author": {
+    "name": "Traversal",
+    "email": "support@traversal.com",
+    "url": "https://traversal.com"
+  },
+  "homepage": "https://docs.traversal.com/using-traversal/mcp",
+  "repository": "https://github.com/InteractionLabs/traversal-plugins",
+  "license": "Apache-2.0",
+  "keywords": ["incident-response", "root-cause-analysis", "observability", "sre"],
+  "userConfig": {
+    "api_key": {
+      "type": "string",
+      "title": "Traversal API key",
+      "description": "Your Traversal API key (starts with trv_ak_). Create one at app.traversal.com under Settings > API keys.",
+      "required": true,
+      "sensitive": true
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "traversal",
+  "description": "Traversal plugins for Claude Code",
+  "owner": {
+    "name": "Traversal",
+    "email": "support@traversal.com"
+  },
+  "plugins": [
+    {
+      "name": "traversal",
+      "source": "./plugins/claude",
+      "description": "Investigate production incidents with Traversal's AI root cause analysis"
+    }
+  ]
+}

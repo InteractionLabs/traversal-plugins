@@ -1,0 +1,17 @@
+{
+  "name": "traversal",
+  "owner": {
+    "name": "Traversal",
+    "email": "support@traversal.com"
+  },
+  "metadata": {
+    "description": "Traversal plugins for Cursor",
+    "pluginRoot": "plugins"
+  },
+  "plugins": [
+    {
+      "name": "traversal",
+      "source": "cursor"
+    }
+  ]
+}
