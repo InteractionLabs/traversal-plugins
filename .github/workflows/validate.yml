@@ -31,12 +31,12 @@ jobs:
       - name: Validate Codex plugin against Agent Plugins schemas
         run: |
           set -euo pipefail
-          npx --yes ajv-cli@5 validate --spec=draft2020 --strict=false \
-            -s <(curl -fsSL https://agent-plugins.org/schemas/1.0.0/plugin.schema.json) \
-            -d plugins/codex/plugin.json
-          npx --yes ajv-cli@5 validate --spec=draft2020 --strict=false \
-            -s <(curl -fsSL https://agent-plugins.org/schemas/1.0.0/mcp.schema.json) \
-            -d plugins/codex/mcp.json
+          for kind in plugin mcp; do
+            curl -fsSL "https://agent-plugins.org/schemas/1.0.0/${kind}.schema.json" \
+              -o "${RUNNER_TEMP}/${kind}.schema.json"
+            npx --yes ajv-cli@5 validate --spec=draft2020 --strict=false \
+              -s "${RUNNER_TEMP}/${kind}.schema.json" -d "plugins/codex/${kind}.json"
+          done
 
       - name: Check Cursor variables are declared
         run: |
