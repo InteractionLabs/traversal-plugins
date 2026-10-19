@@ -1,6 +1,6 @@
 # Contributing
 
-This repository is maintained by the Traversal team. We don't accept external pull requests; any that are opened will be closed.
+This repository is maintained by the Traversal team and doesn't accept external pull requests. To suggest a change, open an issue.
 
 ## Reporting issues
 
@@ -10,7 +10,7 @@ We welcome bug reports and feature requests. Open a GitHub issue with the agent 
 
 ### Skills
 
-Skills under `plugins/*/skills/` are synced from Traversal's internal source of truth by the `sync-customer-skills` workflow, which opens a pull request from the `sync/customer-skills` branch. Edit skills at the source, not here.
+Skills under `plugins/*/skills/` are synced automatically and arrive as pull requests. Don't edit them here; change them at the source.
 
 ### Making changes
 
