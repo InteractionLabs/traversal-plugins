@@ -1,0 +1,74 @@
+name: Validate plugins
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Check JSON syntax
+        run: |
+          set -euo pipefail
+          find . -name '*.json' -not -path './.git/*' -print0 | xargs -0 -n1 jq empty
+
+      - name: Validate Claude Code plugin and marketplace
+        run: |
+          set -euo pipefail
+          npx --yes @anthropic-ai/claude-code plugin validate ./plugins/claude
+          npx --yes @anthropic-ai/claude-code plugin validate .
+
+      - name: Validate Codex plugin against Agent Plugins schemas
+        run: |
+          set -euo pipefail
+          for kind in plugin mcp; do
+            curl -fsSL "https://agent-plugins.org/schemas/1.0.0/${kind}.schema.json" \
+              -o "${RUNNER_TEMP}/${kind}.schema.json"
+            npx --yes ajv-cli@5 validate --spec=draft2020 --strict=false \
+              -s "${RUNNER_TEMP}/${kind}.schema.json" -d "plugins/codex/${kind}.json"
+          done
+
+      - name: Check Cursor variables are declared
+        run: |
+          set -euo pipefail
+          used=$(grep -oE '\$\{[A-Z_]+\}' plugins/cursor/mcp.json | tr -d '${}' | sort -u)
+          declared=$(jq -r '.variables.properties | keys[]' plugins/cursor/.cursor-plugin/plugin.json | sort -u)
+          missing=$(comm -23 <(echo "$used") <(echo "$declared"))
+          if [ -n "$missing" ]; then
+            echo "Undeclared variables in plugins/cursor/mcp.json: $missing"
+            exit 1
+          fi
+
+      - name: Check skills are identical across plugins
+        run: |
+          set -euo pipefail
+          diff -r plugins/claude/skills plugins/cursor/skills
+          diff -r plugins/claude/skills plugins/codex/skills
+
+      - name: Check skill frontmatter
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          for f in plugins/*/skills/*/SKILL.md; do
+            head -1 "$f" | grep -qx -- '---' || { echo "$f: missing frontmatter"; exit 1; }
+            grep -qE '^name: ' "$f" || { echo "$f: missing name"; exit 1; }
+            grep -qE '^description: ' "$f" || { echo "$f: missing description"; exit 1; }
+          done
+
+      - name: Check for credentials
+        run: |
+          set -euo pipefail
+          if grep -rnE 'trv_ak_[A-Za-z0-9]{8,}' --exclude-dir=.git .; then
+            echo "Found what looks like a Traversal API key"
+            exit 1
+          fi

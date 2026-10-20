@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "traversal": {
+      "type": "http",
+      "url": "https://api.prod.traversal.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${user_config.api_key}"
+      }
+    }
+  }
+}

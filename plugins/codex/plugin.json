@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "traversal",
+  "version": "0.1.0",
+  "description": "Investigate production incidents with Traversal's AI root cause analysis from Codex.",
+  "author": {
+    "name": "Traversal",
+    "email": "support@traversal.com"
+  },
+  "homepage": "https://docs.traversal.com/using-traversal/mcp",
+  "repository": "https://github.com/InteractionLabs/traversal-plugins",
+  "license": "Apache-2.0",
+  "keywords": ["incident-response", "root-cause-analysis", "observability", "sre"]
+}

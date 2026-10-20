@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/octo-sts/app/refs/heads/main/pkg/octosts/octosts.TrustPolicy.json
+
+# Lets the skills sync workflow open sync pull requests in this repository.
+issuer: https://token.actions.githubusercontent.com
+subject_pattern: repo:InteractionLabs/[^:]+:ref:refs/heads/master
+
+claim_pattern:
+  repository_id: "809924304"
+  job_workflow_ref: "[^@]+/\\.github/workflows/sync-customer-skills\\.yml@refs/heads/master"
+
+permissions:
+  contents: write
+  pull_requests: write

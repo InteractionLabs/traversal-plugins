@@ -1,0 +1,25 @@
+{
+  "name": "traversal",
+  "displayName": "Traversal",
+  "version": "0.1.0",
+  "description": "Investigate production incidents with Traversal's AI root cause analysis from Cursor.",
+  "author": {
+    "name": "Traversal",
+    "email": "support@traversal.com"
+  },
+  "homepage": "https://docs.traversal.com/using-traversal/mcp",
+  "repository": "https://github.com/InteractionLabs/traversal-plugins",
+  "license": "Apache-2.0",
+  "keywords": ["incident-response", "root-cause-analysis", "observability", "sre"],
+  "variables": {
+    "type": "object",
+    "properties": {
+      "TRAVERSAL_API_KEY": {
+        "type": "string",
+        "title": "Traversal API key",
+        "description": "Your Traversal API key (starts with trv_ak_). Create one at app.traversal.com under Settings > API keys."
+      }
+    },
+    "required": ["TRAVERSAL_API_KEY"]
+  }
+}
