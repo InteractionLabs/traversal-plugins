@@ -10,5 +10,13 @@
   "homepage": "https://docs.traversal.com/using-traversal/mcp",
   "repository": "https://github.com/InteractionLabs/traversal-plugins",
   "license": "Apache-2.0",
-  "keywords": ["incident-response", "root-cause-analysis", "observability", "sre"]
+  "keywords": ["incident-response", "root-cause-analysis", "observability", "sre"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "logo": "./assets/logo.png",
+        "composerIcon": "./assets/logo.png"
+      }
+    }
+  }
 }
