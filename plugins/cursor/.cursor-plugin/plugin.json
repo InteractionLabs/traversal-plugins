@@ -10,6 +10,7 @@
   "homepage": "https://docs.traversal.com/using-traversal/mcp",
   "repository": "https://github.com/InteractionLabs/traversal-plugins",
   "license": "Apache-2.0",
+  "logo": "./logo.png",
   "keywords": ["incident-response", "root-cause-analysis", "observability", "sre"],
   "variables": {
     "type": "object",
