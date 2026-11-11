@@ -1,7 +1,7 @@
 {
   "name": "traversal",
   "displayName": "Traversal",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Investigate production incidents with Traversal's AI root cause analysis from Claude Code.",
   "author": {
     "name": "Traversal",
@@ -12,6 +12,9 @@
   "repository": "https://github.com/InteractionLabs/traversal-plugins",
   "license": "Apache-2.0",
   "icon": "./logo.png",
+  "documentationUrl": "https://docs.traversal.com/using-traversal/mcp",
+  "supportUrl": "https://github.com/InteractionLabs/traversal-plugins/issues",
+  "privacyPolicyUrl": "https://www.traversal.com/legal/privacy-policy",
   "keywords": ["incident-response", "root-cause-analysis", "observability", "sre"],
   "userConfig": {
     "api_key": {
