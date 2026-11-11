@@ -56,6 +56,10 @@ plugins/
 
 Open an issue in this repository, or contact support@traversal.com.
 
+## Security
+
+To report a security issue, see [SECURITY.md](SECURITY.md). Please don't open a public issue.
+
 ## License
 
 [Apache-2.0](LICENSE)
