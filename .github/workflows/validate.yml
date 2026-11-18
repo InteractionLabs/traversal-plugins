@@ -54,6 +54,7 @@ jobs:
           set -euo pipefail
           diff -r plugins/claude/skills plugins/cursor/skills
           diff -r plugins/claude/skills plugins/codex/skills
+          diff -r plugins/claude/skills plugins/opencode/skills
 
       - name: Check skill frontmatter
         run: |
@@ -68,7 +69,23 @@ jobs:
       - name: Check for credentials
         run: |
           set -euo pipefail
-          if grep -rnE 'trv_ak_[A-Za-z0-9]{8,}' --exclude-dir=.git .; then
+          if grep -rnE 'trv_ak_[A-Za-z0-9]{8,}' --exclude-dir=.git --exclude-dir=node_modules .; then
             echo "Found what looks like a Traversal API key"
             exit 1
           fi
+
+      - name: Typecheck OpenCode plugin
+        working-directory: plugins/opencode
+        run: |
+          set -euo pipefail
+          npm ci --ignore-scripts --legacy-peer-deps --no-audit --no-fund
+          npm run typecheck
+
+      - name: Check OpenCode package contents
+        working-directory: plugins/opencode
+        run: |
+          set -euo pipefail
+          files=$(npm pack --dry-run --json | jq -r '.[0].files[].path')
+          for f in src/index.ts skills/investigate/SKILL.md README.md LICENSE package.json; do
+            echo "$files" | grep -qx "$f" || { echo "Package is missing $f"; exit 1; }
+          done
