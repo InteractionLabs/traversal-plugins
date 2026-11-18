@@ -1,0 +1,43 @@
+{
+  "name": "@traversal/opencode",
+  "version": "0.1.0",
+  "description": "Investigate production incidents with Traversal's AI root cause analysis from OpenCode.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src",
+    "skills",
+    "README.md",
+    "LICENSE",
+    "logo.png"
+  ],
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Traversal",
+    "email": "support@traversal.com",
+    "url": "https://traversal.com"
+  },
+  "homepage": "https://docs.traversal.com/using-traversal/mcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InteractionLabs/traversal-plugins.git",
+    "directory": "plugins/opencode"
+  },
+  "bugs": {
+    "url": "https://github.com/InteractionLabs/traversal-plugins/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["opencode", "opencode-plugin", "incident-response", "root-cause-analysis", "observability", "sre"],
+  "devDependencies": {
+    "@opencode/plugin": "2.2.5",
+    "@types/node": "26.6.6",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}
