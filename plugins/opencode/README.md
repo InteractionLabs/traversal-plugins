@@ -6,14 +6,13 @@ Requires OpenCode 2.
 
 ## Setup
 
-1. Add the plugin to your `opencode.json`:
+1. Install the plugin:
 
-   ```jsonc
-   {
-     "$schema": "https://opencode.ai/config.json",
-     "plugins": ["@traversal/opencode"]
-   }
+   ```bash
+   opencode plugin add @traversal/opencode
    ```
+
+   This adds it to your OpenCode config for all your projects. To turn it on for one project only, add `"plugins": ["@traversal/opencode"]` to that project's `opencode.json`.
 
 2. Sign in to Traversal:
 
