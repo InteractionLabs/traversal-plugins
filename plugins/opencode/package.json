@@ -1,6 +1,6 @@
 {
   "name": "@traversal/opencode",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Investigate production incidents with Traversal's AI root cause analysis from OpenCode.",
   "type": "module",
   "exports": {
