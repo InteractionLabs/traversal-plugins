@@ -4,9 +4,8 @@ Connects Codex to Traversal's remote MCP server so your agent can investigate pr
 
 ## Setup
 
-1. Create a Traversal API key at [app.traversal.com](https://app.traversal.com/settings/api-keys) under **Settings > API keys**.
-2. Install the plugin. See the [repository README](../../README.md) for install steps.
-3. Codex signs you in to Traversal the first time it connects to the MCP server.
+1. Install the plugin. See the [repository README](../../README.md) for install steps.
+2. Sign in to Traversal with your work email when Codex prompts you. No API key is needed.
 
 Then ask your agent about a production issue, for example: "Why is checkout-service returning 500s since 14:00?"
 

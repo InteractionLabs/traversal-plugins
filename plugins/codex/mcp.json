@@ -3,7 +3,7 @@
   "mcpServers": {
     "traversal": {
       "type": "streamable-http",
-      "url": "https://api.prod.traversal.com/mcp/"
+      "url": "https://api.traversal.com/mcp"
     }
   }
 }
