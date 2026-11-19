@@ -10,7 +10,6 @@ Releases are published from GitHub Actions with npm trusted publishing. No npm t
    git tag opencode-v<version> && git push origin opencode-v<version>
    ```
 
-3. The **Publish OpenCode plugin** workflow checks the plugin, confirms the tag matches `package.json`, and stages the version on npm with provenance.
-4. A package maintainer approves the staged version on npmjs.com (**Staged Packages** tab), with 2FA. It goes live after approval.
+3. The **Publish OpenCode plugin** workflow checks the plugin, confirms the tag matches `package.json`, and publishes the version to npm with provenance.
 
 Tags matching `opencode-v*` can only be pushed by maintainers, and only those tags can use the `npm` environment that npm trusts.
