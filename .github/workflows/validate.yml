@@ -41,8 +41,8 @@ jobs:
       - name: Check Cursor variables are declared
         run: |
           set -euo pipefail
-          used=$(grep -oE '\$\{[A-Z_]+\}' plugins/cursor/mcp.json | tr -d '${}' | sort -u)
-          declared=$(jq -r '.variables.properties | keys[]' plugins/cursor/.cursor-plugin/plugin.json | sort -u)
+          used=$({ grep -oE '\$\{[A-Z_]+\}' plugins/cursor/mcp.json || true; } | tr -d '${}' | sort -u)
+          declared=$(jq -r '(.variables.properties // {}) | keys[]' plugins/cursor/.cursor-plugin/plugin.json | sort -u)
           missing=$(comm -23 <(echo "$used") <(echo "$declared"))
           if [ -n "$missing" ]; then
             echo "Undeclared variables in plugins/cursor/mcp.json: $missing"
