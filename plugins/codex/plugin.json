@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "traversal",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Investigate production incidents with Traversal's AI root cause analysis from Codex.",
   "author": {
     "name": "Traversal",
@@ -14,8 +14,25 @@
   "extensions": {
     "com.openai": {
       "interface": {
+        "displayName": "Traversal",
+        "shortDescription": "Investigate production issues",
+        "longDescription": "Traversal is an AI site reliability engineer. It investigates production incidents across your organization's logs, metrics, traces, alerts, changes and code, and finds the root cause.\n\nWith Traversal, you can:\n- Start an investigation from a symptom, such as \"checkout-service has returned 500s since 14:00\", and get back a report with the likely root cause, the evidence behind it, and suggested next steps\n- Follow up on an investigation to dig into gaps or test another hypothesis\n- Catch up on earlier investigations and on Traversal agents working in incident channels\n- Read the runbooks and knowledge that Traversal's investigations use\n\nEvery finding cites the evidence it is based on, and links back to the Traversal web app so you can review it yourself.\n\nRequirements: a Traversal account. Sign in with your work email; Traversal uses your organization's existing access, and you only see data from organizations you belong to.",
+        "developerName": "Traversal",
+        "category": "Developer Tools",
+        "websiteURL": "https://www.traversal.com",
+        "supportURL": "https://github.com/InteractionLabs/traversal-plugins/issues",
+        "privacyPolicyURL": "https://www.traversal.com/legal/privacy-policy",
+        "termsOfServiceURL": "https://www.traversal.com/legal/terms-conditions",
+        "defaultPrompt": [
+          "Why are checkout requests failing in the last hour?",
+          "Summarize my recent Traversal investigations",
+          "What has Traversal found in our incident channel so far?"
+        ],
         "logo": "./assets/logo.png",
         "composerIcon": "./assets/logo.png"
+      },
+      "publication": {
+        "release_notes": "First release of Traversal for ChatGPT and Codex. Sign in with your Traversal account (OAuth) to start investigations into production issues, follow up on findings, read results with cited evidence, list earlier investigations, and search your organization's runbooks and knowledge."
       }
     }
   }

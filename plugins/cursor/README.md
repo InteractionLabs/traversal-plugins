@@ -4,11 +4,14 @@ Connects Cursor to Traversal's remote MCP server so your agent can investigate p
 
 ## Setup
 
-1. Create a Traversal API key at [app.traversal.com](https://app.traversal.com/settings/api-keys) under **Settings > API keys**.
-2. Install the plugin. See the [repository README](../../README.md) for install steps.
-3. After installing, set `TRAVERSAL_API_KEY` to your Traversal API key under **Plugins → Configure** in the Cursor dashboard.
+1. Install the plugin. See the [repository README](../../README.md) for install steps.
+2. In **Cursor Settings → Tools & MCP**, click **Connect** next to Traversal and sign in with your work email. No API key is needed.
 
 Then ask your agent about a production issue, for example: "Why is checkout-service returning 500s since 14:00?"
+
+## Use an API key instead
+
+You can also connect with a Traversal API key instead of signing in. Add the server to your own `~/.cursor/mcp.json` with the key, as described in [Set up with a key](https://docs.traversal.com/using-traversal/mcp#set-up-with-a-key). Then turn off this plugin's Traversal server in **Cursor Settings → Tools & MCP**, so you don't have two.
 
 ## Documentation
 
